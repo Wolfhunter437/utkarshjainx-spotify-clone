@@ -1,0 +1,1777 @@
+/*--------------------------------------------------------------------------------1920px-----------------------------------------------------------------------------------------*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+*{
+    margin: 0rem;
+    padding: 0rem;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+:root{
+    --background: #242424;
+    --secondaryColor: black;
+    --secondaryColorHover: #333333;
+    --fontColor1: white;
+}
+
+body{
+    background-color: var(--background);
+}
+
+.container{
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 15% 85%;
+    grid-template-rows: 90% 10%;
+    overflow: hidden;
+}
+
+nav{
+    font-family: 'Roboto Mono', monospace;
+    color: var(--fontColor1);
+    background-color: var(--secondaryColor);
+    height: 100vh;
+    grid-column: 1;
+}
+
+nav ul{
+    display: inline;
+    list-style: none;
+    align-items: center;
+    font-size: 1.8rem;
+    padding: 1rem;
+}
+
+nav ul li{
+    padding: 1.7rem;
+}
+
+nav ul li .home, nav ul li .library
+{
+    margin-right: 0.7rem;
+    transform: translateY(0.5rem);
+    font-size: 2.6rem;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: var(--fontColor1);
+}
+
+nav ul li:hover{
+    background-color: var(--secondaryColorHover);
+    cursor: pointer;
+}
+
+nav ul .brand img{
+    width: 8rem;
+    margin-right: 2rem;
+}
+
+nav ul .brand{
+    font-size: 2.3rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10%;
+}
+
+nav ul .brand:hover{
+    background-color: var(--secondaryColor);
+}
+
+.bottom{
+    grid-column: 2;
+    grid-row: 2;
+    background-color: var(--background);
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: var(--fontColor1);
+    font-size: 2rem;
+}
+
+#myProgressBar{
+    width: 90%;
+    cursor: pointer;
+}
+
+.controls{
+    margin-top: 1.5rem;
+    display: grid;
+    grid-template-columns: 45% 2% 6% 2% 45%;
+    width: 100%;
+}
+
+.songName{
+    grid-column: 1;
+    margin-left: 12%;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.8rem;
+}
+
+#songTime{
+    grid-column: 5;
+    display: flex;
+    justify-content: right;
+    margin-right: 12%;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.7rem;
+}
+
+.play{
+    grid-column: 3;
+    display: flex;
+    justify-content: center;
+}
+
+.prev{
+    grid-column: 2;
+    display: flex;
+    justify-content: center;
+}
+
+.next{
+    grid-column: 4;
+    display: flex;
+    justify-content: center;
+}
+
+.play, .prev, .next{
+    font-size: 3rem;
+}
+
+.play:hover, .prev:hover, .next:hover{
+    transform: scale(1.2);
+    transition-duration: 0.3s;
+    cursor: pointer;
+}
+
+.play:not(hover), .prev:not(hover), .next:not(hover){
+    transition-duration: 0.3s;
+}
+
+.container1{
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.container1 h1
+{
+    color: var(--fontColor1);
+    font-family: 'Roboto Mono', monospace;
+    margin: 3rem 0rem 3rem 0rem;
+}
+
+.content{
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    overflow-y: auto;
+}
+
+.content::-webkit-scrollbar{
+    display: none;
+}
+
+.imgcover
+{
+    width: 85%;
+    height: 90vh;
+    position: absolute;
+    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.4));
+}
+
+.bgcover{
+    width: 100%;
+    height: 90vh;
+    position: absolute;
+    z-index: -1;
+}
+
+.songlist{
+    display: inline;
+    margin: 2rem 5rem 0rem 5rem;
+}
+
+.song{
+    width: 19vw;
+    height: 4.3rem;
+    background-color: var(--secondaryColor);
+    margin-bottom: 0.3rem;
+    padding: 0rem 1rem 0rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 1rem;
+    color: var(--fontColor1);
+    font-size: 1.5rem;
+    font-family: 'Roboto Mono', monospace;
+    cursor: pointer;
+}
+
+.song:hover{
+    background-color: #1DB954;
+}
+
+.song:active{
+    background-color: #1DB954;
+}
+
+.clickBar{
+    width: 19vw;
+    height: 4vh;
+    background-color: var(--secondaryColor);
+    position: absolute;
+    opacity: 0;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.imgset{
+    display: flex;
+    align-items: center;
+}
+
+.song img{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.6rem;
+    margin-right: 1rem;
+}
+
+.songInfo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.songInfo1{
+    background-color: var(--secondaryColor);
+    max-width: 50rem;
+    max-height: 50rem;
+    min-width: 50rem;
+    min-height: 50rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.songInfo1 img{
+    max-width: 50rem;
+    min-width: 50rem;
+}
+
+/*---------------------------------------------------------------------------------320px---------------------------------------------------------------------------------------*/
+
+@media screen and (max-width: 320px){
+
+    .container{
+        height: 100vh;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 85% 10% 5%;
+        overflow: visible;
+    }
+    
+    nav{
+        font-family: 'Roboto Mono', monospace;
+        color: var(--fontColor1);
+        background-color: var(--secondaryColor);
+        height: auto;
+        grid-column: 1;
+        grid-row: 3;
+    }
+    
+    nav ul{
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        align-items: auto;
+        font-size: 0rem;
+        padding: 0rem;
+    }
+    
+    nav ul li{
+        padding: 0.5rem 1.4rem;
+    }
+    
+    nav ul li .home, nav ul li .library
+    {
+        margin-right: 0.7rem;
+        transform: translateY(0rem);
+        font-size: 2.2rem;
+    }
+    
+    nav ul li a{
+        text-decoration: none;
+        color: var(--fontColor1);
+    }
+    
+    nav ul li:hover{
+        background-color: var(--secondaryColorHover);
+        cursor: pointer;
+    }
+    
+    nav ul .brand img{
+        width: 3.2rem;
+        margin-right: 0rem;
+    }
+    
+    nav ul .brand{
+        font-size: 0rem;
+        font-weight: 600;
+        display: flex;
+        align-items: auto;
+        margin-bottom: 0rem;
+    }
+    
+    nav ul .brand:hover{
+        background-color: var(--secondaryColor);
+    }
+    
+    .bottom{
+        grid-column: 1;
+        grid-row: 2;
+        background-color: var(--background);
+        z-index: 2;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+        color: var(--fontColor1);
+        font-size: 1.5rem;
+    }
+    
+    #myProgressBar{
+        width: 90%;
+        cursor: pointer;
+    }
+    
+    .controls{
+        margin-top: 0rem;
+        display: grid;
+        grid-template-columns: 36% 8% 12% 8% 36%;
+        width: 100%;
+    }
+    
+    .songName{
+        grid-column: 1;
+        margin-left: 12%;
+        font-family: 'Roboto Mono', monospace;
+        font-size: 1.4rem;
+    }
+    
+    #songTime{
+        grid-column: 5;
+        display: flex;
+        justify-content: right;
+        margin-right: 12%;
+        font-family: 'Roboto Mono', monospace;
+        font-size: 1.4rem;
+    }
+    
+    .play{
+        grid-column: 3;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .prev{
+        grid-column: 2;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .next{
+        grid-column: 4;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .play, .prev, .next{
+        transform: scale(0.8);
+    }
+    
+    .play:hover, .prev:hover, .next:hover{
+        transform: scale(0.8);
+        transition-duration: 0s;
+        cursor: pointer;
+    }
+    
+    .play:not(hover), .prev:not(hover), .next:not(hover){
+        transition-duration: 0.3s;
+    }
+
+    .container1{
+        grid-column: 1;
+        grid-row: 1;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .container1 h1
+    {
+        color: var(--fontColor1);
+        font-family: 'Roboto Mono', monospace;
+        margin: 0rem 0rem 1rem 0rem;
+    }
+    
+    .content{
+        grid-row: 1;
+        grid-column: 1;
+        overflow-y: auto;
+        position: relative;
+        z-index: 2;
+        display: inline ;
+    }
+
+    .content::-webkit-scrollbar
+    {
+        display: none;
+    }
+    
+    .imgcover
+    {
+        width: 100%;
+        height: 90vh;
+        position: absolute;
+        background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.4));
+    }
+    
+    .bgcover{
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        z-index: -1;
+    }
+    
+    .songlist{
+        display: inline;
+        margin: 2rem 4rem 0rem 4rem;
+    }
+
+    .songlist h1{
+        font-size: 1.7rem;
+    }
+    
+    .song{
+        width: 90vw;
+        height: 4.5vh;
+        background-color: var(--secondaryColor);
+        margin-bottom: 0.3rem;
+        padding: 0rem 0.7rem 0rem 0.7rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 1rem;
+        color: var(--fontColor1);
+        font-size: 1.3rem;
+        font-family: 'Roboto Mono', monospace;
+        cursor: pointer;
+    }
+    
+    .clickBar{
+        width: 90vw;
+        height: 4.5vh;
+        background-color: var(--secondaryColor);
+        position: absolute;
+        opacity: 0;
+        border-radius: 1rem;
+        cursor: pointer;
+    }
+    
+    .imgset{
+        display: flex;
+        align-items: center;
+    }
+    
+    .song img{
+        width: 2.7rem;
+        height: 2.7rem;
+        border-radius: 0.6rem;
+        margin-right: 1rem;
+    }
+    
+    .songInfo{
+        display: none;
+    }
+}
+
+/*---------------------------------------------------------------------------------320px---------------------------------------------------------------------------------------*/
+/*---------------------------------------------------------------------------------321px to 480px------------------------------------------------------------------------------*/
+
+@media screen and (min-width: 321px) and (max-width: 480px){
+
+    .container{
+        height: 100vh;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 85% 10% 5%;
+        overflow: visible;
+    }
+    
+    nav{
+        font-family: 'Roboto Mono', monospace;
+        color: var(--fontColor1);
+        background-color: var(--secondaryColor);
+        height: auto;
+        grid-column: 1;
+        grid-row: 3;
+    }
+    
+    nav ul{
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        align-items: auto;
+        font-size: 0rem;
+        padding: 0rem;
+    }
+    
+    nav ul li{
+        padding: 0.5rem 1.4rem;
+    }
+    
+    nav ul li .home, nav ul li .library
+    {
+        margin-right: 0.7rem;
+        transform: translateY(0rem);
+        font-size: 2.2rem;
+    }
+    
+    nav ul li a{
+        text-decoration: none;
+        color: var(--fontColor1);
+    }
+    
+    nav ul li:hover{
+        background-color: var(--secondaryColorHover);
+        cursor: pointer;
+    }
+    
+    nav ul .brand img{
+        width: 3.2rem;
+        margin-right: 0rem;
+    }
+    
+    nav ul .brand{
+        font-size: 0rem;
+        font-weight: 600;
+        display: flex;
+        align-items: auto;
+        margin-bottom: 0rem;
+    }
+    
+    nav ul .brand:hover{
+        background-color: var(--secondaryColor);
+    }
+    
+    .bottom{
+        grid-column: 1;
+        grid-row: 2;
+        background-color: var(--background);
+        z-index: 2;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+        color: var(--fontColor1);
+        font-size: 1.5rem;
+    }
+    
+    #myProgressBar{
+        width: 90%;
+        cursor: pointer;
+    }
+    
+    .controls{
+        margin-top: 0rem;
+        display: grid;
+        grid-template-columns: 36% 8% 12% 8% 36%;
+        width: 100%;
+    }
+    
+    .songName{
+        grid-column: 1;
+        margin-left: 12%;
+        font-family: 'Roboto Mono', monospace;
+        font-size: 1.4rem;
+    }
+    
+    #songTime{
+        grid-column: 5;
+        display: flex;
+        justify-content: right;
+        margin-right: 12%;
+        font-family: 'Roboto Mono', monospace;
+        font-size: 1.4rem;
+    }
+    
+    .play{
+        grid-column: 3;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .prev{
+        grid-column: 2;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .next{
+        grid-column: 4;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .play, .prev, .next{
+        transform: scale(0.8);
+    }
+    
+    .play:hover, .prev:hover, .next:hover{
+        transform: scale(0.8);
+        transition-duration: 0s;
+        cursor: pointer;
+    }
+    
+    .play:not(hover), .prev:not(hover), .next:not(hover){
+        transition-duration: 0.3s;
+    }
+
+    .container1{
+        grid-column: 1;
+        grid-row: 1;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .container1 h1
+    {
+        color: var(--fontColor1);
+        font-family: 'Roboto Mono', monospace;
+        margin: 0rem 0rem 1rem 0rem;
+    }
+    
+    .content{
+        grid-row: 1;
+        grid-column: 1;
+        overflow-y: auto;
+        position: relative;
+        z-index: 2;
+        display: inline ;
+    }
+
+    .content::-webkit-scrollbar
+    {
+        display: none;
+    }
+    
+    .imgcover
+    {
+        width: 100%;
+        height: 90vh;
+        position: absolute;
+        background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.4));
+    }
+    
+    .bgcover{
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        z-index: -1;
+    }
+    
+    .songlist{
+        display: inline;
+        margin: 2rem 4rem 0rem 4rem;
+    }
+
+    .songlist h1{
+        font-size: 1.7rem;
+    }
+    
+    .song{
+        width: 80vw;
+        height: 4.5vh;
+        background-color: var(--secondaryColor);
+        margin-bottom: 0.3rem;
+        padding: 0rem 0.7rem 0rem 0.7rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 1rem;
+        color: var(--fontColor1);
+        font-size: 1.3rem;
+        font-family: 'Roboto Mono', monospace;
+        cursor: pointer;
+    }
+    
+    .clickBar{
+        width: 80vw;
+        height: 4.5vh;
+        background-color: var(--secondaryColor);
+        position: absolute;
+        opacity: 0;
+        border-radius: 1rem;
+        cursor: pointer;
+    }
+    
+    .imgset{
+        display: flex;
+        align-items: center;
+    }
+    
+    .song img{
+        width: 2.7rem;
+        height: 2.7rem;
+        border-radius: 0.6rem;
+        margin-right: 1rem;
+    }
+    
+    .songInfo{
+        display: none;
+    }
+}
+
+/*---------------------------------------------------------------------------------321px to 480px-------------------------------------------------------------------------------*/
+/*---------------------------------------------------------------------------------481px to 540px-------------------------------------------------------------------------------*/
+
+@media screen and (min-width: 481px) and (max-width: 540px){
+
+    .container{
+        height: 100vh;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 83% 10% 7%;
+        overflow: visible;
+    }
+    
+    nav{
+        font-family: 'Roboto Mono', monospace;
+        color: var(--fontColor1);
+        background-color: var(--secondaryColor);
+        height: auto;
+        grid-column: 1;
+        grid-row: 3;
+    }
+    
+    nav ul{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        list-style: none;
+        font-size: 0rem;
+        padding: 0rem;
+    }
+    
+    nav ul li{
+        padding: 0.8rem 1.4rem;
+    }
+    
+    nav ul li .home, nav ul li .library
+    {
+        margin-right: 0.7rem;
+        transform: translateY(0rem);
+        font-size: 2.4rem;
+    }
+    
+    nav ul li a{
+        text-decoration: none;
+        color: var(--fontColor1);
+    }
+    
+    nav ul li:hover{
+        background-color: var(--secondaryColorHover);
+        cursor: pointer;
+    }
+    
+    nav ul .brand img{
+        width: 3.4rem;
+        margin-right: 0rem;
+    }
+    
+    nav ul .brand{
+        font-size: 0rem;
+        font-weight: 600;
+        display: flex;
+        align-items: auto;
+        margin-bottom: 0rem;
+    }
+    
+    nav ul .brand:hover{
+        background-color: var(--secondaryColor);
+    }
+    
+    .bottom{
+        grid-column: 1;
+        grid-row: 2;
+        background-color: var(--background);
+        z-index: 2;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+        color: var(--fontColor1);
+        font-size: 1.6rem;
+    }
+    
+    #myProgressBar{
+        width: 90%;
+        cursor: pointer;
+    }
+    
+    .controls{
+        margin-top: 0rem;
+        display: grid;
+        grid-template-columns: 36% 8% 12% 8% 36%;
+        width: 100%;
+    }
+    
+    .songName{
+        grid-column: 1;
+        margin-left: 12%;
+        font-family: 'Roboto Mono', monospace;
+        font-size: 1.4rem;
+    }
+    
+    #songTime{
+        grid-column: 5;
+        display: flex;
+        justify-content: right;
+        margin-right: 12%;
+        font-family: 'Roboto Mono', monospace;
+        font-size: 1.4rem;
+    }
+    
+    .play{
+        grid-column: 3;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .prev{
+        grid-column: 2;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .next{
+        grid-column: 4;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .play, .prev, .next{
+        transform: scale(0.8);
+    }
+    
+    .play:hover, .prev:hover, .next:hover{
+        transform: scale(0.8);
+        transition-duration: 0s;
+        cursor: pointer;
+    }
+    
+    .play:not(hover), .prev:not(hover), .next:not(hover){
+        transition-duration: 0.3s;
+    }
+
+    .container1{
+        grid-column: 1;
+        grid-row: 1;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .container1 h1
+    {
+        color: var(--fontColor1);
+        font-family: 'Roboto Mono', monospace;
+        margin: 0rem 0rem 1rem 0rem;
+    }
+    
+    .content{
+        grid-row: 1;
+        grid-column: 1;
+        overflow-y: auto;
+        position: relative;
+        z-index: 2;
+        display: inline ;
+    }
+
+    .content::-webkit-scrollbar
+    {
+        display: none;
+    }
+    
+    .imgcover
+    {
+        width: 100%;
+        height: 90vh;
+        position: absolute;
+        background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.4));
+    }
+    
+    .bgcover{
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        z-index: -1;
+    }
+    
+    .songlist{
+        display: inline;
+        margin: 2rem 4rem 0rem 4rem;
+    }
+
+    .songlist h1{
+        font-size: 1.7rem;
+    }
+    
+    .song{
+        width: 80vw;
+        height: 5vh;
+        background-color: var(--secondaryColor);
+        margin-bottom: 0.3rem;
+        padding: 0rem 0.7rem 0rem 0.7rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 0.6rem;
+        color: var(--fontColor1);
+        font-size: 1.4rem;
+        font-family: 'Roboto Mono', monospace;
+        cursor: pointer;
+    }
+    
+    .clickBar{
+        width: 80vw;
+        height: 5vh;
+        background-color: var(--secondaryColor);
+        position: absolute;
+        opacity: 0;
+        border-radius: 0.6rem;
+        cursor: pointer;
+    }
+    
+    .imgset{
+        display: flex;
+        align-items: center;
+    }
+    
+    .song img{
+        width: 2.8rem;
+        height: 2.8rem;
+        border-radius: 0.5rem;
+        margin-right: 1rem;
+    }
+    
+    .songInfo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .songInfo1{
+        background-color: var(--secondaryColor);
+        max-width: 40rem;
+        max-height: 40rem;
+        min-width: 40rem;
+        min-height: 40rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 1rem;
+        overflow: hidden;
+    }
+    
+    .songInfo1 img{
+        max-width: 40rem;
+        min-width: 40rem;
+    }
+}
+
+/*---------------------------------------------------------------------------------481px to 540px-------------------------------------------------------------------------------*/
+/*---------------------------------------------------------------------------------541px to 768px-------------------------------------------------------------------------------*/
+
+@media screen and (min-width: 541px) and (max-width: 768px){
+
+    .container{
+        height: 100vh;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 83% 10% 7%;
+        overflow: visible;
+    }
+    
+    nav{
+        font-family: 'Roboto Mono', monospace;
+        color: var(--fontColor1);
+        background-color: var(--secondaryColor);
+        height: auto;
+        grid-column: 1;
+        grid-row: 3;
+    }
+    
+    nav ul{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        list-style: none;
+        font-size: 0rem;
+        padding: 0rem;
+    }
+    
+    nav ul li{
+        padding: 0.8rem 1.4rem;
+    }
+    
+    nav ul li .home, nav ul li .library
+    {
+        margin-right: 0.7rem;
+        transform: translateY(0rem);
+        font-size: 2.4rem;
+    }
+    
+    nav ul li a{
+        text-decoration: none;
+        color: var(--fontColor1);
+    }
+    
+    nav ul li:hover{
+        background-color: var(--secondaryColorHover);
+        cursor: pointer;
+    }
+    
+    nav ul .brand img{
+        width: 3.4rem;
+        margin-right: 0rem;
+    }
+    
+    nav ul .brand{
+        font-size: 0rem;
+        font-weight: 600;
+        display: flex;
+        align-items: auto;
+        margin-bottom: 0rem;
+    }
+    
+    nav ul .brand:hover{
+        background-color: var(--secondaryColor);
+    }
+    
+    .bottom{
+        grid-column: 1;
+        grid-row: 2;
+        background-color: var(--background);
+        z-index: 2;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+        color: var(--fontColor1);
+        font-size: 1.6rem;
+    }
+    
+    #myProgressBar{
+        width: 90%;
+        cursor: pointer;
+    }
+    
+    .controls{
+        margin-top: 0rem;
+        display: grid;
+        grid-template-columns: 36% 8% 12% 8% 36%;
+        width: 100%;
+    }
+    
+    .songName{
+        grid-column: 1;
+        margin-left: 12%;
+        font-family: 'Roboto Mono', monospace;
+        font-size: 1.4rem;
+    }
+    
+    #songTime{
+        grid-column: 5;
+        display: flex;
+        justify-content: right;
+        margin-right: 12%;
+        font-family: 'Roboto Mono', monospace;
+        font-size: 1.4rem;
+    }
+    
+    .play{
+        grid-column: 3;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .prev{
+        grid-column: 2;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .next{
+        grid-column: 4;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .play, .prev, .next{
+        transform: scale(0.8);
+    }
+    
+    .play:hover, .prev:hover, .next:hover{
+        transform: scale(0.8);
+        transition-duration: 0s;
+        cursor: pointer;
+    }
+    
+    .play:not(hover), .prev:not(hover), .next:not(hover){
+        transition-duration: 0.3s;
+    }
+
+    .container1{
+        grid-column: 1;
+        grid-row: 1;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .container1 h1
+    {
+        color: var(--fontColor1);
+        font-family: 'Roboto Mono', monospace;
+        margin: 0rem 0rem 1rem 0rem;
+    }
+    
+    .content{
+        grid-row: 1;
+        grid-column: 1;
+        overflow-y: auto;
+        position: relative;
+        z-index: 2;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .content::-webkit-scrollbar
+    {
+        display: none;
+    }
+    
+    .imgcover
+    {
+        width: 100%;
+        height: 90vh;
+        position: absolute;
+        background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.4));
+    }
+    
+    .bgcover{
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        z-index: -1;
+    }
+    
+    .songlist{
+        display: inline;
+        margin: 2rem 4rem 0rem 4rem;
+    }
+
+    .songlist h1{
+        font-size: 1.7rem;
+    }
+    
+    .song{
+        width: 40vw;
+        height: 5vh;
+        background-color: var(--secondaryColor);
+        margin-bottom: 0.3rem;
+        padding: 0rem 0.7rem 0rem 0.7rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 0.6rem;
+        color: var(--fontColor1);
+        font-size: 1.4rem;
+        font-family: 'Roboto Mono', monospace;
+        cursor: pointer;
+    }
+    
+    .clickBar{
+        width: 40vw;
+        height: 5vh;
+        background-color: var(--secondaryColor);
+        position: absolute;
+        opacity: 0;
+        border-radius: 0.6rem;
+        cursor: pointer;
+    }
+    
+    .imgset{
+        display: flex;
+        align-items: center;
+    }
+    
+    .song img{
+        width: 2.8rem;
+        height: 2.8rem;
+        border-radius: 0.5rem;
+        margin-right: 1rem;
+    }
+    
+    .songInfo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .songInfo1{
+        background-color: var(--secondaryColor);
+        max-width: 30rem;
+        max-height: 30rem;
+        min-width: 30rem;
+        min-height: 30rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 1rem;
+        overflow: hidden;
+    }
+    
+    .songInfo1 img{
+        max-width: 30rem;
+        min-width: 30rem;
+    }
+}
+
+/*---------------------------------------------------------------------------------541px to 768px-------------------------------------------------------------------------------*/
+/*---------------------------------------------------------------------------------769px to 1280px-------------------------------------------------------------------------------*/
+
+@media screen and (min-width: 769px) and (max-width: 1280px){
+
+    .container{
+        height: 100vh;
+        width: 100vw;
+        display: grid;
+        grid-template-columns: 8% 92%;
+        grid-template-rows: 87% 13%;
+        overflow: hidden;
+    }
+    
+    nav{
+        font-family: 'Roboto Mono', monospace;
+        color: var(--fontColor1);
+        background-color: var(--secondaryColor);
+        height: 100vh;
+        grid-column: 1;
+    }
+    
+    nav ul{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        list-style: none;
+        font-size: 0rem;
+        padding: 0rem;
+    }
+    
+    nav ul li{
+        padding: 1rem;
+    }
+    
+    nav ul li .home, nav ul li .library
+    {
+        margin-right: 0rem;
+        transform: translateY(0rem);
+        font-size: 2.6rem;
+    }
+    
+    nav ul li a{
+        text-decoration: none;
+        color: var(--fontColor1);
+    }
+    
+    nav ul li:hover{
+        background-color: var(--secondaryColorHover);
+        cursor: pointer;
+    }
+    
+    nav ul .brand img{
+        width: 5rem;
+        margin-right: 0rem;
+    }
+    
+    nav ul .brand{
+        font-size: 0rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        margin-bottom: 0;
+    }
+    
+    nav ul .brand:hover{
+        background-color: var(--secondaryColor);
+    }
+    
+    .bottom{
+        grid-column: 2;
+        grid-row: 2;
+        background-color: var(--background);
+        z-index: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: var(--fontColor1);
+        font-size: 2rem;
+    }
+    
+    #myProgressBar{
+        width: 90%;
+        cursor: pointer;
+    }
+    
+    .controls{
+        margin-top: 1.5rem;
+        display: grid;
+        grid-template-columns: 45% 2% 6% 2% 45%;
+        width: 100%;
+    }
+    
+    .songName{
+        grid-column: 1;
+        margin-left: 12%;
+        font-family: 'Roboto Mono', monospace;
+        font-size: 1.7rem;
+    }
+    
+    #songTime{
+        grid-column: 5;
+        display: flex;
+        justify-content: right;
+        margin-right: 12%;
+        font-family: 'Roboto Mono', monospace;
+        font-size: 1.6rem;
+    }
+    
+    .play{
+        grid-column: 3;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .prev{
+        grid-column: 2;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .next{
+        grid-column: 4;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .play, .prev, .next{
+        transform: scale(0.9);
+    }
+    
+    .play:hover, .prev:hover, .next:hover{
+        transform: scale(0.9);
+        transition-duration: 0.3s;
+        cursor: pointer;
+    }
+    
+    .play:not(hover), .prev:not(hover), .next:not(hover){
+        transition-duration: 0.3s;
+    }
+    
+    .container1{
+        grid-column: 2;
+        grid-row: 1;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .container1 h1
+    {
+        color: var(--fontColor1);
+        font-family: 'Roboto Mono', monospace;
+        margin: 3rem 0rem 3rem 0rem;
+    }
+    
+    .content{
+        position: relative;
+        z-index: 2;
+        display: flex;
+        justify-content: space-between;
+        overflow-y: auto;
+    }
+
+    .content::-webkit-scrollbar{
+        display: none;
+    }
+    
+    .imgcover
+    {
+        width: 92%;
+        height: 90vh;
+        position: absolute;
+        background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.4));
+    }
+    
+    .bgcover{
+        width: 100%;
+        height: 90vh;
+        position: absolute;
+        z-index: -1;
+    }
+    
+    .songlist{
+        display: inline;
+        margin: 2rem 5rem 0rem 5rem;
+    }
+    
+    .song{
+        width: 30vw;
+        height: 5rem;
+        background-color: var(--secondaryColor);
+        margin-bottom: 0.3rem;
+        padding: 0rem 1rem 0rem 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 0.7rem;
+        color: var(--fontColor1);
+        font-size: 1.5rem;
+        font-family: 'Roboto Mono', monospace;
+        cursor: pointer;
+    }
+    
+    .song:active{
+        background-color: #1DB954;
+    }
+    
+    .clickBar{
+        width: 30vw;
+        height: 5vh;
+        background-color: var(--secondaryColor);
+        position: absolute;
+        opacity: 0;
+        border-radius: 0.7rem;
+        cursor: pointer;
+    }
+    
+    .imgset{
+        display: flex;
+        align-items: center;
+    }
+    
+    .song img{
+        width: 3rem;
+        height: 3rem;
+        border-radius: 0.6rem;
+        margin-right: 1rem;
+    }
+    
+    .songInfo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 12%;
+    }
+    
+    .songInfo1{
+        background-color: var(--secondaryColor);
+        max-width: 40rem;
+        max-height: 40rem;
+        min-width: 40rem;
+        min-height: 40rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 1rem;
+        overflow: hidden;
+    }
+    
+    .songInfo1 img{
+        max-width: 40rem;
+        min-width: 40rem;
+    }
+}
+
+/*---------------------------------------------------------------------------------769px to 1280px-------------------------------------------------------------------------------*/
+/*---------------------------------------------------------------------------------1281px to 1480px-------------------------------------------------------------------------------*/
+
+@media screen and (min-width: 1281px) and (max-width: 1480px){
+
+    .container{
+        height: 100vh;
+        width: 100vw;
+        display: grid;
+        grid-template-columns: 15% 85%;
+        grid-template-rows: 87% 13%;
+        overflow: hidden;
+    }
+    
+    nav{
+        font-family: 'Roboto Mono', monospace;
+        color: var(--fontColor1);
+        background-color: var(--secondaryColor);
+        height: 100vh;
+        grid-column: 1;
+    }
+    
+    nav ul{
+        display: inline;
+        list-style: none;
+        font-size: 1.6rem;
+        padding: 0rem;
+    }
+    
+    nav ul li{
+        padding: 1rem;
+    }
+    
+    nav ul li .home, nav ul li .library
+    {
+        margin-right: 1rem;
+        transform: translateY(0.5rem);
+        font-size: 2.6rem;
+    }
+    
+    nav ul li a{
+        text-decoration: none;
+        color: var(--fontColor1);
+    }
+    
+    nav ul li:hover{
+        background-color: var(--secondaryColorHover);
+        cursor: pointer;
+    }
+    
+    nav ul .brand img{
+        width: 6rem;
+        margin-right: 1rem;
+    }
+    
+    nav ul .brand{
+        font-size: 2rem;
+        font-weight: 600;
+        display: flex;
+        margin-bottom: 1;
+    }
+    
+    nav ul .brand:hover{
+        background-color: var(--secondaryColor);
+    }
+    
+    .bottom{
+        grid-column: 2;
+        grid-row: 2;
+        background-color: var(--background);
+        z-index: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: var(--fontColor1);
+        font-size: 2rem;
+    }
+    
+    #myProgressBar{
+        width: 90%;
+        cursor: pointer;
+    }
+    
+    .controls{
+        margin-top: 1.5rem;
+        display: grid;
+        grid-template-columns: 45% 2% 6% 2% 45%;
+        width: 100%;
+    }
+    
+    .songName{
+        grid-column: 1;
+        margin-left: 12%;
+        font-family: 'Roboto Mono', monospace;
+        font-size: 1.7rem;
+    }
+    
+    #songTime{
+        grid-column: 5;
+        display: flex;
+        justify-content: right;
+        margin-right: 12%;
+        font-family: 'Roboto Mono', monospace;
+        font-size: 1.6rem;
+    }
+    
+    .play{
+        grid-column: 3;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .prev{
+        grid-column: 2;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .next{
+        grid-column: 4;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .play, .prev, .next{
+        transform: scale(0.9);
+    }
+    
+    .play:hover, .prev:hover, .next:hover{
+        transform: scale(0.9);
+        transition-duration: 0.3s;
+        cursor: pointer;
+    }
+    
+    .play:not(hover), .prev:not(hover), .next:not(hover){
+        transition-duration: 0.3s;
+    }
+    
+    .container1{
+        grid-column: 2;
+        grid-row: 1;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .container1 h1
+    {
+        color: var(--fontColor1);
+        font-family: 'Roboto Mono', monospace;
+        margin: 3rem 0rem 3rem 0rem;
+    }
+    
+    .content{
+        position: relative;
+        z-index: 2;
+        display: flex;
+        justify-content: space-between;
+        overflow-y: auto;
+    }
+
+    .content::-webkit-scrollbar{
+        display: none;
+    }
+    
+    .imgcover
+    {
+        width: 85%;
+        height: 90vh;
+        position: absolute;
+        background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.4));
+    }
+    
+    .bgcover{
+        width: 100%;
+        height: 90vh;
+        position: absolute;
+        z-index: -1;
+    }
+    
+    .songlist{
+        display: inline;
+        margin: 2rem 5rem 0rem 5rem;
+    }
+    
+    .song{
+        width: 30vw;
+        height: 5rem;
+        background-color: var(--secondaryColor);
+        margin-bottom: 0.3rem;
+        padding: 0rem 1rem 0rem 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 1rem;
+        color: var(--fontColor1);
+        font-size: 1.5rem;
+        font-family: 'Roboto Mono', monospace;
+        cursor: pointer;
+    }
+    
+    .song:active{
+        background-color: #1DB954;
+    }
+    
+    .clickBar{
+        width: 30vw;
+        height: 5vh;
+        background-color: var(--secondaryColor);
+        position: absolute;
+        opacity: 0;
+        border-radius: 1rem;
+        cursor: pointer;
+    }
+    
+    .imgset{
+        display: flex;
+        align-items: center;
+    }
+    
+    .song img{
+        width: 3rem;
+        height: 3rem;
+        border-radius: 0.6rem;
+        margin-right: 1rem;
+    }
+    
+    .songInfo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 12%;
+    }
+    
+    .songInfo1{
+        background-color: var(--secondaryColor);
+        max-width: 40rem;
+        max-height: 40rem;
+        min-width: 40rem;
+        min-height: 40rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 1rem;
+        overflow: hidden;
+    }
+    
+    .songInfo1 img{
+        max-width: 40rem;
+        min-width: 40rem;
+    }
+}
